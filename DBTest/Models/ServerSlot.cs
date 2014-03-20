@@ -5,6 +5,7 @@ namespace DBTest.Models
 {
     public class ServerSlot
     {
+        // En kommentar
         public int ServerSlotId { get; set; }
         public virtual HostServer HostServer { get; set; }
         public String IpAddress { get; set; }
