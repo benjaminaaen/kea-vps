@@ -1,0 +1,90 @@
+﻿@model DBTest.Models.HostServer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>HostServer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServerStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServerStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Specs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Specs)
+        </dd>
+
+    </dl>
+    
+</div>
+
+<div>
+    Hej
+    @if(true)
+    {
+        @Html.Display("Farvel")
+        <table class="table">
+
+            <tr>
+                <th>IP Address</th>
+                <th>Header</th>
+                <th>Header 12</th>
+                <th>Blah</th>
+                <th>Tekst</th>
+                <th>Noget andet</th>
+            </tr>
+
+            @foreach (var item in Model.ServerSlots)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(slotItem => item.IpAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(slotItem => item.ServerType.OperatingSystem)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(slotItem => item.ServerType.CpuSpeedInMhz)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(slotItem => item.ServerType.MemoryInMb)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(slotItem => item.ServerType.DiskSpaceInMb)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(slotItem => item.ServerType.AdditionalServices)
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        @Html.Display("Hejsa")
+    }
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.HostServerId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
